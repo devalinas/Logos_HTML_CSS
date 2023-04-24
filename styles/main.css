@@ -66,6 +66,7 @@ nav ul li a:hover, .menu-active {
 }
 
 .folder, .monitor, .users, .clouds, .settings {
+    position: relative;
     width: 67px;
     height: 62px;
     border-radius: 15px;
@@ -76,25 +77,110 @@ nav ul li a:hover, .menu-active {
 
 .folder {
     margin-top: 33px;
-    background-image: url(../images/main/folder2.svg);
+    background-image: url(../images/main/folder-black.svg);
+}
+
+.folder-active, .folder:hover {
+    background-image: url(../images/main/folder-white.svg);
+}
+
+.folder:hover::after {
+    content: "Project";
+}
+
+.folder:hover::after, 
+.monitor:hover::after, 
+.users:hover::after,
+.clouds:hover::after,
+.settings:hover::after {
+    position: absolute;
+    right: -88px;
+    width: 100px;
+    height: 100%;
+    background-color: #2785F7;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    animation: fadeIn 1s linear;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.side-bar-active,
+.folder:hover, 
+.monitor:hover, 
+.users:hover, 
+.clouds:hover, 
+.settings:hover,
+.clouds:hover,
+.settings:hover {
     background-color: #2785F7;
 }
 
 .monitor {
-    background-image: url(../images/main/monitor.svg);
+    background-image: url(../images/main/monitor-black.svg);
+}
+
+.monitor-active, .monitor:hover {
+    background-image: url(../images/main/monitor-white.svg);
+}
+
+.monitor:hover::after {
+    content: "Account";
 }
 
 .users {
-    background-image: url(../images/main/Vector.svg);
+    background-image: url(../images/main/users-black.svg);
+}
+
+.users:hover {
+    background-image: url(../images/main//users-white.svg);
+}
+
+.users:hover::after {
+    content: "Groups";
 }
 
 .clouds {
-    background-image: url(../images/main/cloud-share.svg);
+    background-image: url(../images/main/clouds-black.svg);
+}
+
+.clouds:hover {
+    background-image: url(../images/main/clouds-white.svg);
+}
+
+.clouds:hover::after {
+    content: "Cloud";
 }
 
 .settings {
     margin-bottom: 53px;
-    background-image: url(../images/main/cog.svg);
+    background-image: url(../images/main/settings-black.svg);
+}
+
+.settings:hover {
+    background-image: url(../images/main/settings-white.svg);
+}
+
+.settings:hover::after {
+    content: "Setting";
 }
 
 .content {
@@ -134,13 +220,22 @@ nav ul li a:hover, .menu-active {
     padding: 25px 42px;
 }
 
-.text-box p, .describes p, .personal-data p {
+.text-box p, 
+.describes p, 
+.personal-data p, 
+.profile-name p, 
+.pass-describe p,
+.company-describe p {
     color: #B1B1B1;
     font-size: 18px;
     line-height: 30px;
 }
 
-.text-box h2, .describes h3, .personal-data h3 {
+.text-box h2, 
+.describes h3, 
+.personal-data h3, 
+.profile-name h3,
+.company-describe h3 {
     color: #000;
     font-size: 24px;    
     line-height: 50px;
@@ -210,22 +305,43 @@ nav ul li a:hover, .menu-active {
     border-radius: 41px;
     background-color: #EAEBED;
     display: flex;
-    flex-flow: column nowrap;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.top-team {
-    width: 100%;
-    margin-top: 56px;
-    display: flex;
-    justify-content: space-around; 
-}
-
-.top-member {
+.separate-member {
+    position: relative;
     width: 292px;
     height: 325px;
     border-radius: 41px;
     background-color: #FEFEFE;
     text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.separate-member:hover::after {
+    content: url(../images/team/trash.svg);
+    position: absolute;
+    top: -20px;
+    right: -13px;
+    width: 82px;
+    height: 76px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.separate-member:nth-child(1), 
+.separate-member:nth-child(2), 
+.separate-member:nth-child(3), 
+.separate-member:nth-child(4) {
+    margin-top: 43px;
 }
 
 .member-1, .member-2, .member-3, .member-4,
@@ -236,10 +352,6 @@ nav ul li a:hover, .menu-active {
     height: 100px;
     background-repeat: no-repeat;
     background-size: contain;
-}
-
-.member-1, .member-2, .member-3, .member-4 {
-    top: 51px;
 }
 
 .member-1 {
@@ -262,43 +374,26 @@ nav ul li a:hover, .menu-active {
     font-family: 'Open Sans', sans-serif;
 }
 
-.top-member .personal-data h3 {
-    position: relative;
-    top: 50px;
+.personal-data h3, 
+.profile-name h3, 
+.profile-name p, 
+.pass-describe p, 
+.pass-describe h3,
+.company-describe h3,
+.company-describe p {
     font-weight: 700;
 }
 
 .personal-data p {
-    position: relative;
     font-weight: 500;
 }
 
-.top-member .personal-data p {
+.personal-data p {
     top: 45px;
 }
 
-.top-member .personal-data p:last-child {
-    margin-top: 20px;
-}
-
-.bottom-team {
-    width: 100%;
-    margin-top: 23px;
-    display: flex;
-    justify-content: space-around; 
-}
-
-.bottom-member {
-    width: 292px;
-    height: 278px;
-    border-radius: 41px;
-    background-color: #FEFEFE;
-    text-align: center;
-    flex-flow: row nowrap;
-}
-
-.member-5, .member-6, .member-7, .member-8 {
-    top: 20px;
+.personal-data p:last-child {
+    margin-top: 30px;
 }
 
 .member-5 {
@@ -317,27 +412,12 @@ nav ul li a:hover, .menu-active {
     background-image: url(../images/team/member-8.svg);
 }
 
-.bottom-member .personal-data h3 {
-    position: relative;
-    top: 15px;
-    font-weight: 700;
-}
-
-.bottom-member .personal-data p {
-    top: 10px;
-}
-
-.bottom-member .personal-data p:last-child {
-    margin-top: 40px;
-}
-
-.top-member:hover, .bottom-member:hover {
+.separate-member:hover {
     cursor: pointer;
     background-color: #2785F7;
 }
 
-.top-member:hover h3, .bottom-member:hover h3,
-.top-member:hover p, .bottom-member:hover p{
+.separate-member:hover h3, .separate-member:hover p {
     color: #EAEBED;
 }
 
@@ -398,4 +478,277 @@ th:last-child {
 
 .download-icon:hover i{
     color: #EAEBED;
+}
+
+input[type="checkbox"] {
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    appearance: none;
+    background-color: #FEFEFE;
+    border-radius: 9px;
+    border: 0.5px solid #000;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #2785F7;
+}
+
+input[type="checkbox"]:checked::before {
+    content:"\2713";
+    color: #EAEBED;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 26px;
+    text-align: center;
+}
+
+/* account */
+
+.content-account {
+    position: relative;
+    top: 20px;
+    left: 55px;
+    width: 1230px;
+    height: 680px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+
+.account-data {
+    position: relative;
+    width: 615px;
+    height: 149px;
+    border-radius: 30px;
+    background-color: #FEFEFE;
+}
+
+.profile-img {
+    position: absolute;
+    top: 42px;
+    left: 42px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #F24F5E;
+    text-align: center;
+    font-weight: 700;
+    color: #FEFEFE;
+    font-size: 39px;
+    line-height: 53px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.profile-name {
+    position: absolute;
+    top: 39px;
+    left: 140px;
+    width: 205px;
+    height: 71px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.profile-name h3, .pass-describe h3 {
+    font-size: 30px;  
+}
+
+.change-password {
+    position: relative;
+    width: 615px;
+    height: 517px;
+    border-radius: 30px;
+    background-color: #FEFEFE;
+}
+
+.pass-img, .company-img {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #2785F7;
+    background-image: url(../images/account/padlock.svg);
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center;
+}
+
+.pass-img {
+    top: 27px;
+    left: 42px;
+}
+
+.pass-describe, .company-describe {
+    position: absolute;
+    top: 27px;
+    left: 149px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.pass-describe p {
+    margin-top: 10px;
+}
+
+.pass-old {
+    top: 134px;
+}
+
+.pass-old, 
+.pass-new, 
+.pass-confirm, 
+.company-name-label, 
+.company-address-label,
+.country-name-label,
+.city-name-label,
+.state-name-label,
+.post-code-label {
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.pass-old, 
+.pass-new, 
+.pass-confirm, 
+.company-name-label, 
+.company-address-label,
+.country-name-label,
+.state-name-label {
+    left: 48px;
+}
+
+#oldPassword, #newPassword, #confirmPassword, #company-name, #company-address {
+    position: absolute;
+    left: 48px;
+    width: 509px;
+    height: 63px;
+    border-radius: 21px;
+    outline: none;
+    border: 2px #B1B1B1 solid;
+    font-size: 18px;
+    padding-left: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+#oldPassword {
+    top: 170px;
+}
+
+#oldPassword:focus, 
+#newPassword:focus, 
+#confirmPassword:focus,
+#company-name:focus,
+#company-address:focus,
+#country-name:focus, 
+#city-name:focus, 
+#state-name:focus, 
+#post-code-value:focus {
+    border: 2px #2785F7 solid;
+}
+
+.pass-new {
+    top: 260px;
+}
+
+#newPassword {
+    bottom: 150px;
+}
+
+#confirmPassword {
+    bottom: 28px;
+}
+
+.pass-confirm {
+    bottom: 113px;
+}
+
+.set-company {
+    position: relative;
+    width: 588px;
+    height: 679px;
+    border-radius: 30px;
+    background-color: #FEFEFE;
+}
+
+.company-img {
+    top: 42px;
+    left: 47px;
+}
+
+.company-describe {
+    width: 380px;
+    height: 85px;
+}
+
+.company-name-label {
+    top: 145px;
+}
+
+#company-name {
+    top: 185px;
+    width: 494px;
+    height: 64px;
+}
+
+.company-address-label {
+    top: 265px;
+}
+
+#company-address {
+    top: 305px;
+    width: 494px;
+    height: 100px;
+    resize: none;
+    padding-top: 10px;
+}
+
+#country-name, #city-name, #state-name, #post-code-value {
+    position: absolute;
+    width: 222px;
+    height: 63px;
+    border-radius: 21px;
+    outline: none;
+    border: 2px #B1B1B1 solid;
+    font-size: 18px;
+    padding-left: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+#country-name, 
+#state-name, 
+.country-name-label, 
+.state-name-label {
+    left: 48px;
+}
+
+#country-name, #city-name {
+    bottom: 144px;
+}
+
+#city-name, #post-code-value {
+    right: 27px;
+}
+
+#state-name, #post-code-value {
+    bottom: 21px;
+}
+
+.country-name-label, .city-name-label {
+    bottom: 225px;
+}
+
+.state-name-label, .post-code-label {
+    bottom: 106px;
+}
+
+.city-name-label {
+    right: 230px;
+}
+
+.post-code-label {
+    right: 163px;
 }

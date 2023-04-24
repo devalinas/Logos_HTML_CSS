@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="./index.html" class="menu-active">Main</a></li>
+                    <li><a href="./team.html">Team</a></li>
+                    <li><a href="./lessons.html">Lessons</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-page">
+            <div class="side-bar">
+                <div class="folder" onclick="window.open('index.html')"></div>
+                <div class="monitor monitor-active side-bar-active"></div>
+                <div class="users"></div>
+                <div class="clouds"></div>
+                <div class="settings"></div>                
+            </div>
+            <div class="content-account">
+                <div class="account-data">
+                    <div class="profile-img">A</div>
+                    <div class="profile-name">
+                        <h3>Andy Cube</h3>
+                        <p>Andycube@gmail.com</p>
+                    </div>
+                </div>
+                <form action="" class="change-password">
+                    <div class="pass-img"></div>
+                    <div class="pass-describe">
+                        <h3>Change Password</h3>
+                        <p>Please choose a password which is longer than 6 characters</p>
+                    </div>
+                    <label for="oldPassword" class="pass-old">Old password</label>
+                    <input type="password" name="oldPassword" id="oldPassword" placeholder="Enter password">
+                    <label for="newPassword" class="pass-new">New password</label>
+                    <input type="password" name="newPassword" id="newPassword" placeholder="Enter password">
+                    <label for="confirmPassword" class="pass-confirm">Confirm password</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Enter password">
+                </form>
+                <form action="" class="set-company">
+                    <div class="company-img"></div>
+                    <div class="company-describe">
+                        <h3>Company</h3>
+                        <p>Optional, but we would appreciate if you fill out these form</p>
+                    </div>
+                    <label for="company-name" class="company-name-label">Company name</label>
+                    <input type="text" name="company-name" id="company-name" placeholder="Logos IT Academy">
+                    <label for="company-address" class="company-address-label">Company address</label>
+                    <textarea name="company-address" id="company-address" cols="30" rows="10" placeholder="61, I.Franka, Lviv"></textarea>
+                    <label for="country-name" class="country-name-label">Country</label>
+                    <input type="text" name="country-name" id="country-name" placeholder="Enter country">
+                    <label for="city-name" class="city-name-label">City</label>
+                    <input type="text" name="city-name" id="city-name" placeholder="Enter city">
+                    <label for="state-name" class="state-name-label">State</label>
+                    <input type="text" name="state-name" id="state-name" placeholder="Enter state">
+                    <label for="post-code-value" class="post-code-label">Postal code</label>
+                    <input type="text" name="post-code-value" id="post-code-value" placeholder="Enter code">
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
